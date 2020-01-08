@@ -1,0 +1,189 @@
+ @font-face {
+      font-family: Arial Narrow;
+      src: url(fonts/arial-narrow.ttf);
+    }
+    
+    body {
+      background-color: Black;
+      margin: 0;
+      overflow: hidden;
+      height: 100%;
+      cursor: crosshair;
+    }
+
+    p {
+      font-family: 'Arial Narrow', Arial, Sans-serif; 
+      color: White;
+      -webkit-text-shadow: 0px 0px 3px Black;
+      -moz-text-shadow: 0px 0px 3px Black;
+      text-shadow: 0px 0px 3px Black;
+      font-size: 35px;
+      line-height : 40px;
+      margin-top: 35px;
+      margin-bottom: 35px;
+      margin-left: 35px;
+      margin-right: 35px;
+    }
+
+    p:hover {
+      cursor: text;
+    }
+
+    @media (max-width: 800px) {
+      .footer{ 
+        visibility: hidden;
+      }
+    }
+
+    @media (max-width: 480px) {
+      p {
+        font-size: 30px;
+        line-height : 35px;
+        margin-top: 15px;
+        margin-bottom: 15px;
+        margin-left: 15px;
+        margin-right: 15px;
+      }
+
+      canvas[resize] {
+        width: 100%;
+        height: 100%;
+      }
+    }
+    
+    @media (max-width: 360px) {
+      p {
+        font-size: 25px;
+        line-height : 30px;
+      }
+    }
+    
+    @media (max-width: 310px) {
+      p {
+        font-size: 20px;
+        line-height : 25px;
+        margin-top: 10px;
+        margin-bottom: 10px;
+        margin-left: 10px;
+        margin-right: 10px;
+      }
+    }
+ 
+    p::-moz-selection {
+      color: transparent;
+      text-shadow: 0 0 10px White;
+    }
+    
+    p::selection {
+      color: transparent;
+      text-shadow: 0 0 10px White;
+    } 
+
+    a:link, a:visited {
+      color: Lime;
+      text-decoration: none;
+    }
+
+    a:hover, a:active {
+      color: White;
+      text-decoration: none;
+      cursor: help;
+    }
+
+    a::-moz-selection {
+      color: transparent;
+      text-shadow: 0 0 10px Lime;
+    }
+
+    a::selection {
+      color: transparent;
+      text-shadow: 0 0 10px Lime;
+    }
+
+    a:hover::-moz-selection {
+      color: transparent;
+      text-shadow: 0 0 10px White;
+    }
+
+    a:hover::selection {
+      color: transparent;
+      text-shadow: 0 0 10px White;
+    }
+
+    a.info{
+      position:relative;
+      z-index:24;
+      color:Lime;
+      text-decoration:none
+    }
+    
+    a.info:hover{
+      z-index:5; 
+      color:White;
+      cursor: context-menu;
+    }
+
+    a.info span{
+      display: none
+    }
+
+    a.info:hover span{
+      -webkit-text-shadow: 0px 0px 0px Black;
+      -moz-text-shadow: 0px 0px 0px Black;
+      text-shadow: 0px 0px 0px Black;
+      display:block;
+      position:absolute;
+      top:-2.5em; left: 100%; 
+      transform: translate(-100%, 0%);
+      width: 195px;
+      background-color:White; color:Black;
+      text-align: center;
+      padding: 10px 0px;
+    }
+
+    a.info:hover span::selection {
+      color: transparent;
+      text-shadow: 0 0 10px Black;
+    }
+
+    br::-moz-selection {
+      color: transparent;
+      text-shadow: 0 0 10px White;
+    }
+
+    br::selection {
+      color: transparent;
+      text-shadow: 0 0 10px White;
+    }
+
+    .about{ 
+      max-width: 940px;
+      position: relative;
+    }
+
+    .contact{ 
+      max-width: 460px;
+      position: relative;
+      top: 50%;
+    }
+
+    .footer{ 
+      position: fixed;    
+      bottom: 0px;
+    }
+
+    .refresh{ 
+      position: fixed;    
+      bottom: 0px;
+      right: 0px;
+    }
+
+    canvas[resize] {
+      width: 100%;
+      height: 100%;
+      position: fixed;
+      top: 0px;
+      bottom: 0px;
+      left: 0px;
+      right: 0px;
+    }

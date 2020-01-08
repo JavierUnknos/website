@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+  <meta charset="UTF-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <meta name="author" content="Javier Unknos">
+  
+  <meta name="description" content="Javier Unknos (Valencia, 31 December 1994) is a designer currently based in Madrid (Spain), freelancer working in the World Wide Web, while being member of Bazar Collective." />
+    
+  <meta name="keywords" content="Javier Unknos, Javier, Unknos">
+  
+  <title>Javier Unknos</title>
+  
+  <!-- Favicon -->
+  <link rel="apple-touch-icon" sizes="57x57" href="favicon/apple-icon-57x57.png">
+  <link rel="apple-touch-icon" sizes="60x60" href="favicon/apple-icon-60x60.png">
+  <link rel="apple-touch-icon" sizes="72x72" href="favicon/apple-icon-72x72.png">
+  <link rel="apple-touch-icon" sizes="76x76" href="favicon/apple-icon-76x76.png">
+  <link rel="apple-touch-icon" sizes="114x114" href="favicon/apple-icon-114x114.png">
+  <link rel="apple-touch-icon" sizes="120x120" href="favicon/apple-icon-120x120.png">
+  <link rel="apple-touch-icon" sizes="144x144" href="favicon/apple-icon-144x144.png">
+  <link rel="apple-touch-icon" sizes="152x152" href="favicon/apple-icon-152x152.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="favicon/apple-icon-180x180.png">
+  <link rel="icon" type="image/png" sizes="192x192"  href="favicon/android-icon-192x192.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="favicon/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="96x96" href="favicon/favicon-96x96.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="favicon/favicon-16x16.png">
+  <link rel="manifest" href="favicon/manifest.json">
+  <meta name="msapplication-TileColor" content="#ffffff">
+  <meta name="msapplication-TileImage" content="/ms-icon-144x144.png">
+  <meta name="theme-color" content="#ffffff">
+
+  <link rel="stylesheet" href="css/style.css">
+
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=UA-153095743-1"></script>
+  
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'UA-153095743-1');
+  </script>
+  
+  <script type="text/javascript" src="js/paper-full.js"></script>
+  
+  <script src="js/paper-full.min.js"></script>
+  
+  <script type="text/paperscript" canvas="canvas">
+    tool.minDistance = 2;
+
+    var path;
+
+    function onMouseDown(event) {
+	  path = new Path({
+        strokeColor: 'White',
+        strokeWidth: 5,
+        strokeCap: 'round',
+        shadowColor: new Color('White'),
+        shadowBlur: 10,
+        shadowOffset: new Point(0, 0)
+	  });
+	  path.strokeColor.alpha = 1;
+	  path.smooth();
+    }
+
+    function onMouseDrag(event) {
+	  path.add(event.point);
+    }
+
+  </script>  
+     
+</head>
+
+<body>
+  <canvas id="canvas" resize></canvas>
+  
+  <div class="about">
+      <p>Javier Unknos (<a href="https://goo.gl/maps/M6WKDiYaZBTP5S667" target="_blank">Valencia</a>, 31 December 1994) is a designer currently based in <a href="https://goo.gl/maps/EuymJzteKrUZG4fh6" target="_blank">Madrid</a> (Spain), freelancer working in the <a href="https://en.wikipedia.org/wiki/World_Wide_Web" target="_blank">World Wide Web</a>, while being member of <a href="https://www.instagram.com/bazar.pvp/" target="_blank">Bazar Collective</a>.</p>
+  </div>
+
+  <div class="contact">
+	<p>Feel free to contact me :)<br>
+	<a href="mailto:info@javierunknos.com">info&thinsp;[at]&thinsp;javierunknos&thinsp;[dot]&thinsp;com</a><br>
+	<a href="https://www.instagram.com/javierunknos/" target="_blank">[at]&thinsp;javierunknos</a></p>
+  </div>
+
+  <div class="footer">
+    <p>Website by Javier Unknos. Last update <a href="https://en.wikipedia.org/wiki/January_10" target="_blank">10/01/20</a></p>
+  </div>
+
+
+  <div class="refresh">
+    <p><a class=info href=".">Clean<span>Drag to draw</span></a>
+  </div>
+</body>
+
+</html>

@@ -43,6 +43,10 @@
         margin-bottom: 15px;
         margin-left: 15px;
         margin-right: 15px;
+        -webkit-user-select: none;
+        -moz-user-select: none;
+        -ms-user-select: none;
+        user-select: none; 
       }
 
       canvas[resize] {

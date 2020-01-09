@@ -80,6 +80,14 @@
       }
     }
  
+    @media only screen 
+    and (min-device-width : 320px) 
+    and (max-device-width : 568px) {
+      p {
+        font-size: 25px;
+        line-height : 30px;}
+    }
+
     p::-moz-selection {
       color: transparent;
       text-shadow: 0 0 10px White;

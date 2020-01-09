@@ -55,7 +55,16 @@
       }
     }
     
-    @media (max-width: 370px) {
+    
+    @media (max-width: 410px) {
+      p {
+        font-size: 25px;
+        line-height : 30px;
+      }
+    }
+    
+
+    @media (max-width: 360px) {
       p {
         font-size: 25px;
         line-height : 30px;

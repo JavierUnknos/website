@@ -1,6 +1,9 @@
  @font-face {
-      font-family: Arial Narrow;
-      src: url(fonts/arial-narrow.ttf);
+    font-family: 'Arial Narrow';
+    src: url('css/fonts/ArialNarrow.woff2') format('woff2'),
+         url('css/fonts/ArialNarrow.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
     }
     
     body {

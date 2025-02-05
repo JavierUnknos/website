@@ -13,7 +13,7 @@
       -moz-text-shadow: 0px 0px 3px #fcfcfc;
       text-shadow: 0px 0px 3px #fcfcfc;
       font-size: 12px;
-      line-height : 15px;
+      line-height: 15px;
       margin-top: 10px;
       margin-bottom: 10px;
       margin-left: 10px;
@@ -37,7 +37,7 @@
     } 
 
     a:link, a:visited {
-      color: blue;
+      color: #FF4438;
       text-decoration: none;
     }
 
@@ -49,12 +49,12 @@
 
     a::-moz-selection {
       color: transparent;
-      text-shadow: 0 0 3px blue;
+      text-shadow: 0 0 3px #FF4438;
     }
 
     a::selection {
       color: transparent;
-      text-shadow: 0 0 3px blue;
+      text-shadow: 0 0 3px #FF4438;
     }
 
     a:hover::-moz-selection {
@@ -70,7 +70,7 @@
     a.info{
       position:relative;
       z-index:24;
-      color:blue;
+      color:#FF4438;
       text-decoration:none
     }
     

@@ -1,0 +1,88 @@
+<!--
+
+Design & Development by JAVIER UNKNOS
+javierunknos.com
+©2026 All rights reserved.
+
+-->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <base href="/">
+  <script>
+    if (location.protocol === 'file:') document.querySelector('base').href = location.href;
+  </script>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="author" content="JAVIER UNKNOS">
+
+  <meta name="robots" content="noindex">
+
+  <title>404 Not Found — JAVIER UNKNOS</title>
+
+  <link rel="icon" href="favicon/favicon.ico" sizes="48x48">
+  <link rel="icon" type="image/svg+xml" href="favicon/favicon.svg">
+  <link rel="apple-touch-icon" href="favicon/apple-touch-icon.png">
+  <link rel="manifest" href="favicon/site.webmanifest">
+  <meta name="theme-color" content="#fcfcfc">
+
+  <script>
+    (function () {
+      var root = document.documentElement;
+      if (window.matchMedia('(max-width: 700px), (pointer: coarse) and (max-height: 500px)').matches) {
+        root.classList.add('is-phone', 'm-loading');
+      }
+      if (/^#(about|projects)/.test(window.location.hash)) root.classList.add('is-reloading');
+      setTimeout(function () { root.classList.remove('m-loading', 'is-reloading'); }, 3000);
+    })();
+  </script>
+
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/carousel.css">
+  <link rel="stylesheet" href="css/mobile.css">
+  <link rel="stylesheet" href="css/tablet.css">
+  <link rel="stylesheet" href="css/404.css">
+
+  <script defer src="vendor/paper-core.min.js"></script>
+  <script defer src="js/app.js"></script>
+  <script defer src="js/mobile.js"></script>
+  <script defer src="js/punct-lift.js"></script>
+  <script defer src="js/page-fade.js"></script>
+  <script defer src="js/404.js"></script>
+
+</head>
+
+<body class="not-found-page">
+  <canvas id="canvas" resize aria-label="Drawing area. Drag to draw."></canvas>
+
+  <div class="bio">
+    <h1><a href="./" id="home-link" title="Home">©2026 Javier Unknos</a> is a graphic and type design studio based between <a href="https://www.google.com/maps/place/Valencia/@39.4077013,-0.5015955,11z" target="_blank" rel="noopener noreferrer">Valencia</a> &amp; <a href="https://www.google.com/maps/place/Madrid/@40.4378698,-3.8196202,11z" target="_blank" rel="noopener noreferrer">Madrid</a> [Spain]. Specialising in type design and visual communication, the studio works across visual identities, custom typefaces, editorial and audiovisual projects for international clients in culture, art, fashion, music and film. Its type-centred approach combines digital and analogue processes to build visual systems grounded in narrative, concept and typographic expression, treating each project as an ongoing process of research and experimentation.</h1>
+  </div>
+
+  <nav class="menu" aria-hidden="true">
+    <div class="menu-item section-projects"><p id="projects-toggle"></p></div>
+    <div class="menu-item section-typefaces"><p><span class="num"></span></p></div>
+    <div class="menu-item section-about"><p id="about-toggle"></p></div>
+    <div class="menu-item contact"><p><a class="contact-mail"><span class="num"></span></a></p><p class="contact-links"><a></a></p></div>
+  </nav>
+
+  <p class="not-found"><a href="./" data-fade title="Home"><span>Error</span><span>404</span><span>Not Found</span></a></p>
+
+  <div class="legal-bar"></div>
+
+  <section class="about-panel" id="about-panel" aria-hidden="true"></section>
+
+  <div class="info-sheet" id="info-sheet" aria-hidden="true"><div class="info-card"><button id="info-close" type="button" hidden></button></div></div>
+
+  <div class="footer">
+    <p>Last update <a href="https://en.wikipedia.org/wiki/September_29" target="_blank" rel="noopener noreferrer">29/09/26</a><span class="hint" aria-hidden="true">Drag to draw</span></p>
+  </div>
+
+  <div class="toolbar">
+    <p class="controls"><button id="undo" type="button" title="Undo (Ctrl+Z)" disabled>Undo</button><button id="clean" type="button">Clean</button><button id="download-jpg" type="button" title="Download JPG">Download</button><button id="download-pdf" type="button" title="Download the drawing as a vector PDF">Export vector</button></p>
+    <p class="clock"><time id="clock"><span id="clock-hm">00:00</span><span id="clock-s" class="clock-seconds">:00</span></time> <span id="clock-zone">UTC</span></p>
+  </div>
+</body>
+
+</html>

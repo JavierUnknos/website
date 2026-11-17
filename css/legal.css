@@ -1,0 +1,141 @@
+/*
+Design & Development by JAVIER UNKNOS
+javierunknos.com
+©2026 All rights reserved.
+*/
+    html:has(body.legal-page) {
+      overscroll-behavior-y: none;
+    }
+
+    body.legal-page {
+      cursor: default;
+      transition: opacity 0.6s ease;
+      height: auto;
+      min-height: 100vh;
+      overflow: visible;
+      overflow-x: clip;
+    }
+
+    .legal-top {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 3;
+      background: #fcfcfc;
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      pointer-events: none;
+    }
+
+    .legal-top p {
+      pointer-events: auto;
+    }
+
+    .legal-heading {
+      position: absolute;
+      top: 0;
+      left: calc(50% + 5 * var(--u));
+      display: grid;
+      grid-template-columns: var(--num-col) max-content;
+      column-gap: var(--gap);
+      margin-left: 0;
+      margin-right: 0;
+      color: black;
+    }
+
+    .legal-close:hover,
+    .legal-close:active {
+      cursor: context-menu;
+    }
+
+    .legal-main {
+      position: relative;
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      column-gap: calc(10 * var(--u));
+      row-gap: calc(30 * var(--u));
+      align-items: start;
+      padding: calc(55 * var(--u)) calc(10 * var(--u)) calc(var(--legal-bars-h, 60px) + 30 * var(--u));
+      pointer-events: none;
+    }
+
+    .legal-main p {
+      margin: 0;
+      pointer-events: auto;
+    }
+
+    .legal-title {
+      display: grid;
+      grid-template-columns: var(--num-col) minmax(0, 1fr);
+      column-gap: var(--gap);
+      grid-column: 1 / -1;
+      margin-bottom: calc(15 * var(--u)) !important;
+    }
+
+    .legal-page .num {
+      text-align: right;
+      white-space: nowrap;
+    }
+
+    .legal-col {
+      display: grid;
+      grid-template-columns: var(--num-col) minmax(0, 1fr);
+      column-gap: var(--gap);
+      align-content: start;
+      min-width: 0;
+    }
+
+    .legal-text {
+      grid-column: 2;
+    }
+
+    .legal-text p {
+      font-family: var(--font-inner);
+      text-transform: none;
+    }
+
+    .legal-text p + p {
+      margin-top: calc(15 * var(--u));
+    }
+
+    .legal-bars-bg {
+      position: fixed;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      height: var(--legal-bars-h, 0px);
+      z-index: 2;
+      background: #fcfcfc;
+      pointer-events: none;
+    }
+
+    @media (min-width: 1250px) {
+      html:not(.is-phone) .legal-main {
+        grid-template-columns: repeat(4, minmax(0, 1fr));
+      }
+
+      html:not(.is-phone) .legal-heading {
+        left: calc(20 * var(--u) + (100% - 50 * var(--u)) / 4);
+      }
+    }
+
+    @media (max-width: 700px) {
+      .legal-main {
+        grid-template-columns: minmax(0, 1fr);
+      }
+    }
+
+    html.is-phone .legal-main {
+      grid-template-columns: minmax(0, 1fr);
+    }
+
+    html.is-phone .legal-heading {
+      left: var(--m-col2, 50%);
+    }
+
+    html.is-entering body.legal-page {
+      opacity: 0;
+      transition: none;
+    }

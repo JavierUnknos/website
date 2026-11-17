@@ -1,0 +1,469 @@
+/*
+Design & Development by JAVIER UNKNOS
+javierunknos.com
+©2026 All rights reserved.
+*/
+    .m-menu,
+    .m-carousel,
+    .m-bar-bg {
+      display: none;
+    }
+
+    html.is-reloading body {
+      opacity: 0;
+    }
+
+    html.is-reloading *,
+    html.is-reloading *::before,
+    html.is-reloading *::after {
+      transition: none !important;
+    }
+
+    body {
+      transition: opacity 0.3s ease;
+    }
+
+    @media (max-width: 700px), (pointer: coarse) and (max-height: 500px) {
+      html.is-phone body .bio h1 {
+        height: var(--m-bio-h, auto);
+        overflow: hidden;
+        transition: height 0.7s cubic-bezier(0.65, 0, 0.35, 1) 0.2s;
+      }
+
+      html.is-phone.m-bio-open body .bio h1 {
+        transition: height 0.7s cubic-bezier(0.65, 0, 0.35, 1);
+      }
+
+      html.is-phone body .bio-rest {
+        opacity: 0;
+        visibility: hidden;
+        transition: opacity 0.2s ease, visibility 0s linear 0.2s;
+      }
+
+      html.is-phone.m-bio-open body .bio-rest {
+        opacity: 1;
+        visibility: visible;
+
+        transition: opacity 0.4s ease 0.6s, visibility 0s;
+      }
+
+      html.is-phone:not(.m-bio-open) body .menu:not(.is-swapping) {
+        transition: top 0.7s cubic-bezier(0.65, 0, 0.35, 1) 0.2s, opacity 0.3s ease;
+      }
+
+      html.is-phone body .m-menu {
+        display: block;
+        position: absolute;
+        top: var(--m-btn-top, 10px);
+        right: 0;
+        z-index: 5;
+        margin-top: 0;
+        margin-bottom: 0;
+      }
+
+      html.is-phone body .m-menu.is-swapping {
+        opacity: 0;
+        transition: opacity 0.15s ease;
+      }
+
+      html.is-phone body .m-menu:not(.is-swapping) {
+        transition: opacity 0.2s ease;
+      }
+
+      html.is-phone body .m-menu.m-glide:not(.is-swapping) {
+        transition: top 0.7s cubic-bezier(0.65, 0, 0.35, 1), opacity 0.2s ease;
+      }
+
+      html.is-phone:not(.m-bio-open) body .m-menu.m-glide:not(.is-swapping) {
+        transition: top 0.7s cubic-bezier(0.65, 0, 0.35, 1) 0.2s, opacity 0.2s ease;
+      }
+
+      html.is-phone.m-loading body {
+        opacity: 0;
+      }
+
+      html.is-phone.m-loading *,
+      html.is-phone.m-loading *::before,
+      html.is-phone.m-loading *::after,
+      html.m-still *,
+      html.m-still *::before,
+      html.m-still *::after {
+        transition: none !important;
+      }
+
+      .m-menu-toggle {
+        appearance: none;
+        margin: 0;
+        padding: 0;
+        border: 0;
+        background: transparent;
+        font: inherit;
+        text-transform: inherit;
+        color: #FF4438;
+        cursor: context-menu;
+      }
+
+      .m-menu-toggle::selection {
+        color: transparent;
+        text-shadow: 0 0 calc(3 * var(--u)) #FF4438;
+      }
+
+      html.is-phone body .menu,
+      html.is-phone body.is-about .menu {
+        position: absolute;
+        top: var(--m-menu-top, 40px) !important;
+        transform: none;
+
+        grid-template-columns: var(--m-col1, minmax(0, 1fr)) minmax(0, 1fr);
+        grid-template-rows: none;
+        grid-auto-flow: row;
+        row-gap: calc(15 * var(--u));
+        column-gap: 0;
+      }
+
+      html.is-phone body .menu.is-swapping {
+        opacity: 1;
+      }
+
+      html.is-phone body .menu .section-projects { grid-area: 1 / 1; }
+      html.is-phone body .menu .section-typefaces { grid-area: 2 / 1; }
+      html.is-phone body .menu .section-about { grid-area: 3 / 1; }
+      html.is-phone body .menu .contact { grid-area: 3 / 2; }
+
+      html.is-phone.m-stack body .menu .contact { grid-area: 4 / 1; }
+
+      html.is-phone body .contact-links {
+        white-space: nowrap;
+      }
+
+      html.is-phone body .contact-links wbr {
+        display: none;
+      }
+
+      html.is-phone.m-stack body.is-about:not(.is-menu) {
+        --num-col: calc(48 * var(--u));
+      }
+
+      html.is-phone.m-stack body .about-col .year {
+        text-align: right;
+      }
+
+      html.is-phone body.is-about {
+        --num-col: calc(14 * var(--u));
+      }
+
+      html.is-phone body .menu-item {
+        opacity: 0;
+        visibility: hidden;
+        transition: opacity 0.25s ease, visibility 0s linear 0.25s;
+      }
+
+      html.is-phone body.is-menu .menu-item,
+      html.is-phone body.is-about:not(.is-menu) .section-about,
+      html.is-phone body.is-about:not(.is-menu) .contact,
+      html.is-phone body.is-projects:not(.is-menu) .section-projects {
+        opacity: 1;
+        visibility: visible;
+        transition: opacity 0.35s ease 0.2s, visibility 0s;
+      }
+
+      html.is-phone body.is-menu .menu-item:not(.contact) p,
+      html.is-phone body.is-menu .contact > p:first-child {
+        color: black;
+      }
+
+      html.is-phone body.is-menu .menu-item:not(.contact) p:hover {
+        color: #FF4438;
+      }
+
+      html.is-phone body.is-menu .contact-mail {
+        pointer-events: none;
+      }
+
+      html.is-phone body.is-menu .contact-row:not(.contact-extra) {
+        max-height: calc(15 * var(--u));
+        opacity: 1;
+        visibility: visible;
+        transition: max-height 0.4s ease, opacity 0.3s ease 0.2s, visibility 0s;
+      }
+
+      html.is-phone body.is-menu .contact-extra {
+        max-height: 0;
+        opacity: 0;
+        transition: max-height 0.3s ease 0.1s, opacity 0.15s ease;
+      }
+
+      html.is-phone body.is-menu .contact-label {
+        opacity: 0;
+        visibility: hidden;
+        transition: opacity 0.15s ease, visibility 0s linear 0.15s;
+      }
+
+      html.is-phone body.is-about:not(.is-menu) {
+        overflow: visible;
+        overflow-x: clip;
+        height: auto;
+      }
+
+      html.is-phone body .about-panel {
+        position: absolute;
+        top: var(--m-panel-top, 50%);
+        bottom: auto;
+        overflow: visible;
+        grid-template-columns: minmax(0, 1fr);
+        row-gap: calc(30 * var(--u));
+        padding-bottom: calc(var(--m-bars-h, 40px) + 20 * var(--u));
+      }
+
+      html.is-phone body.is-menu .about-panel {
+        visibility: hidden;
+        opacity: 0;
+        transition: opacity 0.2s ease, visibility 0s linear 0.2s;
+      }
+
+      html.is-phone body.is-about:not(.is-menu) .about-panel {
+        opacity: 1;
+        transition: visibility 0s;
+      }
+
+      html.is-phone body .about-col {
+        justify-self: start;
+        max-width: calc(100% - 20 * var(--u));
+      }
+
+      html.is-phone body .about-col .year {
+        text-align: left;
+      }
+
+      html.is-phone body .about-text {
+        grid-column: 1 / -1;
+      }
+
+      html.is-phone body .carousel {
+        display: none !important;
+      }
+
+      html.is-phone body .m-carousel {
+        display: block;
+      }
+
+      .m-track {
+        position: fixed;
+        top: var(--m-carousel-top, 95px);
+        left: 0;
+        right: 0;
+        z-index: 2;
+        height: var(--m-carousel-h, 60%);
+        display: flex;
+        align-items: flex-start;
+        overflow-x: auto;
+        overflow-y: hidden;
+        scroll-snap-type: x mandatory;
+        scroll-padding: 0 calc(10 * var(--u));
+        padding-left: calc(10 * var(--u));
+        overscroll-behavior-x: contain;
+        scrollbar-width: none;
+        -webkit-overflow-scrolling: touch;
+        cursor: grab;
+      }
+
+      .m-track::-webkit-scrollbar {
+        display: none;
+      }
+
+      .m-track::after {
+        content: "";
+        flex: 0 0 calc(10 * var(--u));
+        height: 1px;
+      }
+
+      .m-item {
+        flex: none;
+        width: calc(100vw - 20 * var(--u));
+        max-width: calc(100vw - 20 * var(--u));
+        scroll-snap-align: center;
+      }
+
+      .m-item > img,
+      .m-item > video,
+      .m-item > .project-placeholder {
+        display: block;
+        width: 100%;
+        height: auto;
+        max-height: var(--m-carousel-h, 60vh);
+        object-fit: cover;
+        background: #eeeeee;
+      }
+
+      .m-item:has(> img) {
+        overflow: hidden;
+        background: #eeeeee;
+      }
+
+      .m-item > img {
+        opacity: 0;
+        filter: blur(16px);
+      }
+
+      .m-item > img.is-loaded {
+        opacity: 1;
+        filter: none;
+        transition: opacity 0.27s ease-out, filter 0.6s cubic-bezier(0.2, 0.7, 0.2, 1);
+      }
+
+      @media (prefers-reduced-motion: reduce) {
+        .m-item > img.is-loaded {
+          transition: opacity 0.2s ease;
+        }
+      }
+
+      .m-labels > p {
+        position: absolute;
+        z-index: 3;
+        margin: 0;
+        display: flex;
+        column-gap: var(--gap);
+      }
+
+      .m-labels .num {
+        width: calc(14 * var(--u));
+        flex: none;
+        text-align: right;
+        white-space: nowrap;
+      }
+
+      .m-info {
+        top: var(--m-labels-top, 40px);
+        left: var(--m-col2, 50%);
+      }
+
+      .m-info .project-info {
+        display: flex;
+        column-gap: var(--gap);
+      }
+
+      .m-info .project-info .num {
+        font-weight: normal;
+      }
+
+      .m-project,
+      .m-client {
+        align-items: flex-end;
+      }
+
+      .m-project {
+        top: var(--m-labels-bottom, 130px);
+        transform: translateY(-100%);
+        left: calc(10 * var(--u));
+        width: calc(var(--m-col2, 50%) - 20 * var(--u));
+      }
+
+      .m-client {
+        top: var(--m-labels-bottom, 130px);
+        transform: translateY(-100%);
+        left: var(--m-col2, 50%);
+        right: calc(10 * var(--u));
+      }
+
+      .m-labels .m-text {
+        min-width: 0;
+      }
+
+      .m-track,
+      .m-labels > p {
+        opacity: 0;
+        visibility: hidden;
+        transition: opacity 0.2s ease, visibility 0s linear 0.2s;
+      }
+
+      html.is-phone body.is-projects:not(.is-menu) .m-labels > p {
+        opacity: 1;
+        visibility: visible;
+        transition: opacity 0.35s ease 0.85s, visibility 0s;
+      }
+
+      html.is-phone body.is-projects:not(.is-menu) .m-track {
+        opacity: 1;
+        visibility: visible;
+        transition: opacity 0.4s ease 0.95s, visibility 0s;
+      }
+
+      .m-info .project-info[data-empty] {
+        visibility: hidden;
+      }
+
+      html.is-phone body .menu-item:not(.contact) p:hover {
+        color: black;
+      }
+
+      html.is-phone body.is-section-open:not(.is-menu) .menu-item:not(.is-current):not(.contact) p:hover {
+        color: #cccccc;
+      }
+
+      html.is-phone body .m-bar-bg {
+        display: block;
+        position: fixed;
+        left: 0;
+        right: 0;
+        bottom: 0;
+
+        height: var(--m-bars-h, 40px);
+        z-index: 4;
+        background: #fcfcfc;
+        pointer-events: none;
+        overflow: hidden;
+      }
+
+      html.is-phone body .m-bar-bg .m-bar-drawing {
+        position: absolute;
+        left: 0;
+        width: 100%;
+      }
+
+      html.is-phone body .footer,
+      html.is-phone body .toolbar {
+        z-index: 5;
+      }
+
+      html.is-phone body:not(.is-menu) .menu-item.is-current p:hover {
+        cursor: default;
+      }
+
+      .m-menu-toggle,
+      .m-info .project-info,
+      html.is-phone body .menu-item > p:first-child {
+        position: relative;
+      }
+
+      .m-menu-toggle::after,
+      .m-info .project-info::after,
+      html.is-phone body .menu-item > p:first-child::after {
+        content: "";
+        position: absolute;
+        top: calc(-7 * var(--u));
+        bottom: calc(-7 * var(--u));
+        left: calc(-10 * var(--u));
+        right: calc(-10 * var(--u));
+      }
+
+      .m-menu-toggle::after {
+        top: calc(-12 * var(--u));
+        bottom: calc(-12 * var(--u));
+      }
+
+      html.is-phone body .toolbar {
+        bottom: calc(25 * var(--u));
+      }
+}
+
+    @media (prefers-reduced-motion: reduce) {
+      html.is-phone *,
+      html.is-phone *::before,
+      html.is-phone *::after,
+      body {
+        transition-duration: 0s !important;
+        transition-delay: 0s !important;
+        animation-duration: 0s !important;
+        animation-delay: 0s !important;
+      }
+    }

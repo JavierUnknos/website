@@ -1,0 +1,43 @@
+/*
+Design & Development by JAVIER UNKNOS
+javierunknos.com
+©2026 All rights reserved.
+*/
+    body.not-found-page .menu,
+    body.not-found-page .m-menu-toggle {
+      visibility: hidden !important;
+    }
+
+    body.not-found-page .menu * {
+      pointer-events: none !important;
+    }
+
+    .not-found {
+      position: fixed;
+      top: 50%;
+      left: 0;
+      right: 0;
+      transform: translateY(-50%);
+      z-index: 3;
+      margin: 0;
+      display: grid;
+      grid-template-columns: 1fr auto 1fr;
+      column-gap: var(--gap);
+      pointer-events: none;
+    }
+
+    .not-found a {
+      display: contents;
+    }
+
+    .not-found span {
+      pointer-events: auto;
+    }
+
+    .not-found span:first-child {
+      justify-self: end;
+    }
+
+    .not-found span:last-child {
+      justify-self: start;
+    }

@@ -1,0 +1,205 @@
+/*
+Design & Development by JAVIER UNKNOS
+javierunknos.com
+©2026 All rights reserved.
+*/
+    .carousel {
+      visibility: hidden;
+      transition: visibility 0s linear 0.2s;
+    }
+
+    body.is-projects .carousel {
+      visibility: visible;
+      transition: visibility 0s;
+    }
+
+    .carousel-labels {
+      opacity: 0;
+      transition: opacity 0.2s ease;
+    }
+
+    body.is-projects .carousel-labels {
+      opacity: 1;
+      transition: opacity 0.4s ease 0.45s;
+    }
+
+    .carousel-hit {
+      position: fixed;
+      top: var(--carousel-top, 30%);
+      left: 0;
+      right: 0;
+      z-index: 2;
+      height: var(--carousel-height, 60%);
+    }
+
+    .carousel-labels {
+      position: fixed;
+      top: 50%;
+      left: 0;
+      right: 0;
+      z-index: 3;
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      pointer-events: none;
+    }
+
+    .carousel-label {
+      display: flex;
+      column-gap: var(--gap);
+      margin-top: 0;
+      margin-bottom: 0;
+      min-width: 0;
+      pointer-events: auto;
+    }
+
+    .carousel-label .num {
+      width: var(--num-col);
+      flex: none;
+      text-align: right;
+      white-space: nowrap;
+    }
+
+    .carousel-text {
+      flex: 1;
+      min-width: 0;
+    }
+
+    .carousel-project {
+      grid-column: 1;
+    }
+
+    .carousel-client {
+      grid-column: 2;
+    }
+
+    .carousel-info {
+      grid-column: 4;
+    }
+
+    .carousel-info .project-info {
+      display: flex;
+      column-gap: var(--gap);
+    }
+
+    .carousel-info .project-info[hidden] {
+      display: none;
+    }
+
+    @media (min-width: 1041px) {
+      .carousel-labels {
+        column-gap: calc(10 * var(--u));
+        padding-left: calc(10 * var(--u));
+        padding-right: calc(10 * var(--u));
+      }
+
+      .carousel-label {
+        margin-left: 0;
+        margin-right: 0;
+      }
+    }
+
+    @media (max-width: 1040px) {
+      .carousel-labels {
+        grid-template-columns: minmax(0, 1fr) minmax(0, 1fr) max-content;
+      }
+
+      .carousel-info {
+        grid-column: 3;
+      }
+    }
+
+    body.is-projects {
+      overflow: hidden;
+      height: 100%;
+    }
+
+    body.is-projects .menu {
+      top: var(--carousel-menu-top, var(--menu-top, 26.5%));
+    }
+
+    .carousel .carousel-labels {
+      top: auto;
+      bottom: var(--carousel-labels-bottom, 70%);
+      align-items: end;
+    }
+
+    .carousel .carousel-label {
+      align-items: flex-end;
+    }
+
+    @media (min-width: 1041px) {
+      .carousel .carousel-client {
+        grid-column: 2 / span 2;
+      }
+    }
+
+    .carousel-track {
+      position: fixed;
+      top: var(--carousel-top, 30%);
+      left: 0;
+      right: 0;
+      z-index: 2;
+      height: var(--carousel-height, 60%);
+      overflow: hidden;
+      overflow: clip;
+      pointer-events: none;
+      opacity: 0;
+      transition: opacity 0.2s ease;
+    }
+
+    body.is-projects .carousel-track {
+      opacity: 1;
+      transition: opacity 0.4s ease 0.75s;
+    }
+
+    body.is-projects .carousel .carousel-labels {
+      transition: opacity 0.35s ease 0.45s;
+    }
+
+    .carousel-item {
+      position: absolute;
+      top: 0;
+      left: 0;
+      will-change: transform, width, height;
+    }
+
+    .carousel-item > img,
+    .carousel-item > video,
+    .carousel-item > .project-placeholder {
+      display: block;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      background: #eeeeee;
+    }
+
+    .carousel-item:has(> img) {
+      overflow: hidden;
+      background: #eeeeee;
+    }
+
+    .carousel-item > img {
+      opacity: 0;
+      filter: blur(16px);
+    }
+
+    .carousel-item > img.is-loaded {
+      opacity: 1;
+      filter: none;
+      transition: opacity 0.27s ease-out, filter 0.6s cubic-bezier(0.2, 0.7, 0.2, 1);
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      .carousel-item > img.is-loaded {
+        transition: opacity 0.2s ease;
+      }
+    }
+
+    .carousel-item.is-hover {
+      filter: grayscale(1) invert(1);
+    }
+
+    .carousel-hit.is-thumb,
+    .carousel-hit.is-thumb.is-back {
+      cursor: crosshair;
+    }

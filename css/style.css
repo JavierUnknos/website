@@ -706,6 +706,12 @@ javierunknos.com
       white-space: normal;
     }
 
+    /* El nombre va en línea dentro de su bloque: si se parte, la coma sigue pegada a la última palabra */
+    .credit-item > .credit-person,
+    .credit-item > .credit-name {
+      display: inline;
+    }
+
     .credit-person:link,
     .credit-person:visited {
       color: black;

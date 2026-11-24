@@ -685,13 +685,14 @@ window.PROJECTS = [
     client: 'Miley Cyrus',
     year: 2026,
     services: ['Title Design', 'Type Design'],
-    description: 'DIFFERENT RELIGION is a music video for Miley Cyrus featuring Model/Actriz, with title lettering that follows the movement and tension of the video through heavy, slanted forms. The letters connect across the words to give the title a sense of speed, and the same approach carries through the credits. A vintage finish brings the typography into the texture of the images.',
+    description: 'DIFFERENT RELIGION is a music video by Miley Cyrus featuring Model/Actriz. The custom typeface for its title and credits is built from heavy, slanted characters that connect within each word, giving the titles a sense of speed that carries through the film.',
     credits: [
       'Direction & Creative Direction: Mert Alas',
       'Production: January Productions'
     ],
     images: [
-      { src: 'images/projects/26-017-different-religion-01.webp', ratio: '16/9' }
+      { src: 'images/projects/26-017-different-religion-01.webp', ratio: '16/9' },
+      { src: 'images/projects/26-017-different-religion-02.webp', ratio: '2250/1372' }
     ]
   },
   {
